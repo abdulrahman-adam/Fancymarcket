@@ -4,6 +4,7 @@ import { assets } from "../../assets/assets";
 import { useAppContext } from "../../context/AppContext";
 import toast from "react-hot-toast";
 
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -39,6 +40,7 @@ const Navbar = () => {
       toast.error(error.message);
     }
   };
+
 
   // console.log("Type de setSearchQuery:", typeof setSearchQuery);
   // console.log("Valeur de searchQuery:", searchQuery);

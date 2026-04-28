@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
+
 import { useAppContext } from "./context/AppContext";
 
 // Components
@@ -29,6 +29,7 @@ import AddAddress from "./pages/addAddress/AddAdress";
 import MyOrders from "./pages/myOrders/MyOrders";
 import Orders from "./pages/admin/Orders";
 import PaymentLoader from "./pages/paymentLoader/PaymentLoader";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const { pathname } = useLocation();
@@ -48,12 +49,55 @@ const App = () => {
   // 2. Existing Seller check
   if (isSellerPath && isSeller === null) return <Loading />;
 
+
+  
   return (
     <div className="text-default min-h-screen text-gray-700 bg-white">
       {!isSellerPath && <Navbar />}
+      
       {showUserLogin && <Login />}
 
-      <Toaster position="top-center" />
+   {/* Standard Toaster with Z-Index Fix */}
+<div style={{ zIndex: 99999, position: 'relative' }}>
+  <Toaster 
+    position="top-center"
+    reverseOrder={false}
+    gutter={8}
+    containerStyle={{
+      top: 40, // Adds a little extra space from the very top
+    }}
+    toastOptions={{
+      duration: 3000,
+      style: {
+        borderRadius: '12px',
+        padding: '16px',
+        fontSize: '14px',
+        fontWeight: '600',
+        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+      },
+      success: {
+        style: {
+          background: '#10b981',
+          color: '#fff',
+        },
+        iconTheme: {
+          primary: '#fff',
+          secondary: '#10b981',
+        },
+      },
+      error: {
+        style: {
+          background: '#ef4444',
+          color: '#fff',
+        },
+        iconTheme: {
+          primary: '#fff',
+          secondary: '#ef4444',
+        },
+      },
+    }}
+  />
+</div>
 
       <Routes>
         {/* ================= PUBLIC ROUTES ================= */}

@@ -52,31 +52,6 @@ const [user, setUser] = useState(undefined);
 
 
   
-  // const fetchUser = async () => {
-  //   try {
-  //     const { data } = await axios.get("/api/user/is-auth");
-  //     if (data.success) {
-  //       setUser(data.user);
-  //       let rawCart = data.user.cartItems;
-  //       // Recursive JSON parsing for Sequelize strings
-  //       if (typeof rawCart === "string") {
-  //         try {
-  //           while (typeof rawCart === "string") { rawCart = JSON.parse(rawCart); }
-  //           setCartItems(rawCart || {});
-  //         } catch { setCartItems({}); }
-  //       } else {
-  //         setCartItems(rawCart || {});
-  //       }
-  //     }
-  //   } catch {
-  //     setUser(null);
-  //   }
-  // };
-
-
-
-  // --- In your State initialization ---
-
 
 const fetchUser = async () => {
     try {
@@ -107,21 +82,6 @@ const fetchUser = async () => {
 
 
 
-  // --- ORDERS (Dynamic: Seller vs User) ---
-
-  // ORIGINAL
-  // const fetchOrders = async () => {
-  //   try {
-  //     // Switches endpoint based on who is logged in
-  //     const url = isSeller ? "/api/order/seller" : "/api/order/user";
-  //     const { data } = await axios.get(url);
-  //     if (data.success) setOrders(data.orders);
-  //   } catch (error) {
-  //     console.error("Fetch orders error:", error.message);
-  //     setOrders([]);
-  //   }
-  // };
-
   const fetchOrders = async () => {
     try {
       const url = isSeller ? "/api/order/seller" : "/api/order/user";
@@ -141,21 +101,6 @@ const fetchUser = async () => {
 };
 
 
-// const fetchOrders = async () => {
-//   try {
-//     const url = isSeller ? "/api/order/seller" : "/api/order/user";
-//     const { data } = await axios.get(url);
-//     if (data.success) {
-//       setOrders(data.orders); 
-//       return data.orders; // CRITICAL: You must return the data here
-//     }
-//     return [];
-//   } catch (error) {
-//     console.error("Fetch orders error:", error.message);
-//     setOrders([]);
-//     return [];
-//   }
-// };
 
   // DELETE ORDER
     const deleteOrder = async (orderId) => {
@@ -246,6 +191,8 @@ const fetchUser = async () => {
     cartData[cartKey] = (cartData[cartKey] || 0) + 1;
     setCartItems(cartData);
     // toast.success("Added to cart ✨");
+    // ADD THIS LINE TO TRIGGER THE TOAST
+    toast.success("Produit ajouté au panier ! ✨");
   };
 
   const removeFromCart = (itemId) => {
@@ -255,7 +202,7 @@ const fetchUser = async () => {
       if (cartData[itemId] <= 0) delete cartData[itemId];
     }
     setCartItems(cartData);
-    toast.success("Removed from cart");
+    toast.success("Produit retiré du panier");
   };
 
 
@@ -264,6 +211,8 @@ const fetchUser = async () => {
     let cartData = structuredClone(cartItems || {});
     cartData[itemId] = quantity;
     setCartItems(cartData);
+    // ADD THIS LINE TO TRIGGER THE TOAST
+    toast.success("Panier mis à jour ! ✨");
   };
 
   const getCartCount = () => Object.values(cartItems).reduce((a, b) => a + b, 0);
