@@ -52,7 +52,7 @@ const AdminLayout = () => {
       {/* --- NAVBAR --- */}
       <div className="flex items-center justify-between px-4 md:px-8 border-b border-gray-300 py-3 bg-white sticky top-0 z-10" style={{height: "55px"}}>
         <Link to='/'>
-          <img src="/logo.jpeg" alt="logo" className="cursor-pointer md:w-38" style={{width: "55px", height: "55px"}}/>
+          <img src="/logo.png" alt="logo" className="cursor-pointer md:w-38" style={{width: "55px", height: "55px"}}/>
         </Link>
 
         <div className="flex items-center gap-3 sm:gap-5 text-gray-600">

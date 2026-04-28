@@ -25,7 +25,7 @@ const Footer = () => {
 
           {/* BRAND */}
           <div>
-            <h2 className="text-xl font-bold text-indigo-600">WEHDA</h2>
+            <h2 className="text-xl font-bold text-indigo-600">FANCYMARCKET</h2>
             <p className="mt-2 text-gray-600 text-sm max-w-sm">
               Plateforme e-commerce moderne, rapide et sécurisée.
             </p>
@@ -86,7 +86,7 @@ const Footer = () => {
         <div className="mt-8 pt-5 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
           <p className="text-gray-500 text-xs sm:text-sm">
             © {new Date().getFullYear()}{" "}
-            <span className="font-semibold text-indigo-600">WEHDA</span>
+            <span className="font-semibold text-indigo-600">FANCYMARCKET</span>
           </p>
 
           <div className="flex gap-4 text-xs sm:text-sm text-gray-400">

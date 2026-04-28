@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
 import ProductCard from "../../components/productCard/ProductCard";
+import CategoryHeroSlider from "../categoryHeroSlider/CategoryHeroSlider";
 
 const TreeProductList = () => {
   const { products, categories } = useAppContext();
@@ -76,6 +77,8 @@ const TreeProductList = () => {
 
   return (
     <div className="mt-16 px-4 min-h-[60vh] max-w-7xl mx-auto flex flex-col items-center">
+
+      
       
       {/* BREADCRUMBS */}
       <nav className="w-full flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 mb-8 self-start">
