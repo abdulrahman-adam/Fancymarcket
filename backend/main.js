@@ -45,8 +45,8 @@ app.post(
 
 // Add all versions of your domain here
 const allowedOrigins = [
-  'https://munidm.fr',
-  'https://www.munidm.fr',
+  'https://fancymarcket.com',
+  'https://www.fancymarcket.com',
   'http://localhost:5173',
   'http://localhost:5174',
   'http://109.176.199.234:5173'
