@@ -113,3 +113,5 @@ export default App;
 // getAllDescendantIds
 
 // splat (wildcard)
+// fix a mistake" (Soft Reset)
+// git reset --soft HEAD~1
