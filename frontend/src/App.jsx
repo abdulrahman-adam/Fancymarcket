@@ -35,6 +35,8 @@ import About from "./pages/about/About";
 import Terms from "./pages/terms/Terms";
 import FAQ from "./pages/faq/Faq";
 import Shipping from "./pages/Shipping/Shipping";
+import Promotions from "./pages/promotions/Promotions";
+import NewArrivals from "./pages/newArrivals/NewArrivals";
 
 
 const App = () => {
@@ -112,9 +114,11 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
         <Route path="/about" element={<About />} />
+        <Route path="/new-arrivals" element={<NewArrivals />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/shipping" element={<Shipping />} />
+        <Route path="/sales" element={<Promotions />} />
         {/* Redirection si la page n'existe pas */}
             <Route path="*" element={<h1 className="text-center py-20">404 - Page non trouvée</h1>} />
         {/* <Route path="/add-address" element={<AddAddress />} />
