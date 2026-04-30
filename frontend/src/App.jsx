@@ -33,7 +33,7 @@ import { Toaster } from "react-hot-toast";
 import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 import About from "./pages/about/About";
 import Terms from "./pages/terms/Terms";
-import FAQ from "./pages/faq/Faq";
+import FAQ from "./pages/faq/FAQ";
 import Shipping from "./pages/Shipping/Shipping";
 import Promotions from "./pages/promotions/Promotions";
 import NewArrivals from "./pages/newArrivals/NewArrivals";
