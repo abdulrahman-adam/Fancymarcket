@@ -4,49 +4,70 @@ const Footer = () => {
   const footerSections = [
     {
       title: "Entreprise",
-      links: ["À propos", "Conditions", "Confidentialité"],
+      links: [
+        { name: "À propos", href: "/about" },
+        { name: "Conditions", href: "/terms" },
+        { name: "Confidentialité", href: "/privacy-policy" },
+      ],
     },
     {
       title: "Support",
-      links: ["Contact", "FAQ", "Livraison"],
+      links: [
+        { name: "Contact", href: "/contact" },
+        { name: "FAQ", href: "/faq" },
+        { name: "Livraison", href: "/shipping" },
+      ],
     },
     {
       title: "Boutique",
-      links: ["Produits", "Nouveautés", "Promotions"],
+      links: [
+        { name: "Produits", href: "/products" },
+        { name: "Nouveautés", href: "/new-arrivals" },
+        { name: "Promotions", href: "/sales" },
+      ],
     },
   ];
 
   return (
-<footer className="bg-gradient-to-br from-gray-900 via-gray-950 to-black border-t border-gray-800 shadow-inner text-gray-200">
-      <div className="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-10">
-
-        {/* 🔹 TOP */}
-        <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-6">
-
-          {/* BRAND */}
-          <div>
-            <h2 className="text-xl font-bold text-indigo-600">FANCYMARCKET</h2>
-            <p className="mt-2 text-gray-600 text-sm max-w-sm">
-              Plateforme e-commerce moderne, rapide et sécurisée.
+    <footer className="bg-gradient-to-br from-gray-950 to-black border-t border-gray-800 shadow-inner text-gray-200">
+      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-10">
+        
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          {/* BRAND COLUMN */}
+          <div className="col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
+            <h2 className="text-2xl font-black tracking-tighter text-indigo-500">FANCYMARCKET</h2>
+            <p className="mt-4 text-gray-400 text-sm leading-relaxed max-w-xs">
+              Plateforme e-commerce moderne, rapide et sécurisée. Sublimez votre style de vie grâce à nos collections soigneusement sélectionnées.
             </p>
+            {/* SOCIAL */}
+            <div className="flex gap-4 mt-6">
+              {["facebook", "instagram", "twitter-x"].map((icon) => (
+                <a
+                  key={icon}
+                  href={`https://${icon}.com`}
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-900 border border-gray-800 text-gray-400 hover:border-indigo-500 hover:text-indigo-500 transition-all shadow-sm"
+                >
+                  <i className={`bi bi-${icon}`}></i>
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* 🔹 LINKS (ALWAYS 3 COLUMNS) */}
-          <div className="w-full grid grid-cols-3 gap-4 text-center sm:text-left">
+          {/* LINKS COLUMNS */}
+          <div className="col-span-3 grid grid-cols-3 gap-8">
             {footerSections.map((section, index) => (
               <div key={index}>
-                <h3 className="text-xs sm:text-sm font-semibold text-white-900 mb-2">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-indigo-400 mb-5">
                   {section.title}
                 </h3>
-
-                <ul className="space-y-1 sm:space-y-2">
+                <ul className="space-y-3">
                   {section.links.map((link, i) => (
                     <li key={i}>
                       <a
-                        href="#"
-                        className="block text-gray-500 text-[11px] sm:text-sm hover:text-indigo-600 transition"
+                        href={link.href}
+                        className="text-gray-400 text-sm hover:text-white transition-colors duration-200"
                       >
-                        {link}
+                        {link.name}
                       </a>
                     </li>
                   ))}
@@ -54,44 +75,20 @@ const Footer = () => {
               </div>
             ))}
           </div>
-
-          {/* 🔹 TRUST BADGES */}
-          <div className="flex flex-wrap justify-center sm:justify-start gap-4 text-xs text-gray-500 mt-4">
-            <span className="flex items-center gap-1">
-              <i className="bi bi-shield-check text-green-500"></i> Sécurisé
-            </span>
-            <span className="flex items-center gap-1">
-              <i className="bi bi-truck text-indigo-500"></i> Livraison
-            </span>
-            <span className="flex items-center gap-1">
-              <i className="bi bi-arrow-repeat text-purple-500"></i> Retours
-            </span>
-          </div>
-
-          {/* 🔹 SOCIAL */}
-          <div className="flex gap-3 mt-4">
-            {["facebook", "instagram", "twitter-x"].map((icon) => (
-              <a
-                key={icon}
-                href="#"
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-indigo-600 hover:text-white transition"
-              >
-                <i className={`bi bi-${icon}`}></i>
-              </a>
-            ))}
-          </div>
         </div>
 
-        {/* 🔹 BOTTOM */}
-        <div className="mt-8 pt-5 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
-          <p className="text-gray-500 text-xs sm:text-sm">
-            © {new Date().getFullYear()}{" "}
-            <span className="font-semibold text-indigo-600">FANCYMARCKET</span>
-          </p>
+        {/* TRUST BADGES & BOTTOM */}
+        <div className="mt-12 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-wrap justify-center gap-6 text-xs font-medium text-gray-500 uppercase tracking-widest">
+            <span className="flex items-center gap-2"><i className="bi bi-shield-lock text-indigo-500 text-lg"></i> Secure Payment</span>
+            <span className="flex items-center gap-2"><i className="bi bi-truck text-indigo-500 text-lg"></i> Global Shipping</span>
+            <span className="flex items-center gap-2"><i className="bi bi-arrow-repeat text-indigo-500 text-lg"></i> 30-Day Returns</span>
+          </div>
 
-          <div className="flex gap-4 text-xs sm:text-sm text-gray-400">
-            <a href="#" className="hover:text-gray-700">Confidentialité</a>
-            <a href="#" className="hover:text-gray-700">Conditions</a>
+          <div className="text-center md:text-right">
+            <p className="text-gray-500 text-xs">
+              © {new Date().getFullYear()} <span className="font-bold text-gray-300">FANCYMARCKET</span>. All Rights Reserved.
+            </p>
           </div>
         </div>
       </div>

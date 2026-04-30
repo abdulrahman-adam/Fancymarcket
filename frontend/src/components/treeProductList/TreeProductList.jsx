@@ -159,7 +159,7 @@ const TreeProductList = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 bg-gray-50 rounded-[40px] w-full border-2 border-dashed border-gray-200">
+          <div className="text-center py-20 bg-gray-50 rounded-[40px] w-full border-2 border-dashed border-gray-200 mb-6">
             <p className="text-gray-400 font-bold uppercase text-xs tracking-widest">
               Aucun produit trouvé
             </p>
@@ -171,3 +171,5 @@ const TreeProductList = () => {
 };
 
 export default TreeProductList;
+
+
